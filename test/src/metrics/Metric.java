@@ -1,15 +1,7 @@
 package metrics;
 import java.util.*;
 
-
-
-// Metryka to klasa, zawiera w sobie wektor pierwszy i drugi, oraz wymiary obu wektorow
-// ktore musza byc takie same. Potrzebne beda metody w tej klasie, ktore beda obliczeniem odleglosci
-// w poszczegolnych metrykach, tak jak moja przykladowa euklides(). Dodatkowo metoda wczytywania z pliku,
-// wyswitlania wektorow i nie wiem jakie jeszcze ficzery.
-
 public class Metric {
-	
 	private int dim;
 	private List<Double> vec1;
 	private List<Double> vec2;
@@ -34,5 +26,20 @@ public class Metric {
 		
 		return Math.sqrt(result);
 	}
-	
+	public double maximum(){
+		double result=0;
+		double p=0;
+		int i=0;
+		for (i=0;i<dim;i++){
+			p=Math.abs(vec1.get(i) - vec2.get(i));
+			if(p>result){result=p;}
+		}
+		return result;
+	}
+	public double rail(){
+		double p, q;
+		p=Math.sqrt(vec1.get(0)*vec1.get(0)+vec1.get(1)*vec1.get(1));
+		q=Math.sqrt(vec2.get(0)*vec2.get(0)+vec2.get(1)*vec2.get(1));
+		return p+q;
+	}
 }
