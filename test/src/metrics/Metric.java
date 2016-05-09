@@ -26,7 +26,7 @@ public class Metric {
 		
 		return Math.sqrt(result);
 	}
-	public double maximum(){
+	public double maximum(){//metryka maksimum
 		double result=0;
 		double p=0;
 		int i=0;
@@ -36,10 +36,36 @@ public class Metric {
 		}
 		return result;
 	}
-	public double rail(){
+	public double rail(){//metryka kolejowa
 		double p, q;
 		p=Math.sqrt(vec1.get(0)*vec1.get(0)+vec1.get(1)*vec1.get(1));
 		q=Math.sqrt(vec2.get(0)*vec2.get(0)+vec2.get(1)*vec2.get(1));
 		return p+q;
+	}
+	
+	
+	public int discrete()///metryka dyskretna
+	{
+		int i;
+			for(i = 0 ; i < dim ; i++){
+				if(vec1.get(i) != vec2.get(i))	{return 1;}		
+			}
+		return 0;
+	}
+	public double taxi(){//metryka miejska
+		double result = 0;
+		double temp;
+		int i;
+		for(i = 0 ; i < dim ; i++)
+			{
+			temp = vec1.get(i) - vec2.get(i);
+			if(temp < 0)
+				{temp = -temp;}
+			
+			result = result + temp;
+		
+			}	
+		
+		return result;
 	}
 }

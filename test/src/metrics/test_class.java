@@ -42,6 +42,8 @@ public class test_class{
 
 	
 		System.out.printf("Metryka euklidesowa w R^n: %.2f\n", m.euklides());
+		System.out.printf("Metryka dyskretna: %d\n", m.discrete());
+		System.out.printf("Metryka miejska w R^n: %.2f\n", m.taxi());
 		System.out.printf("Metryka maksimum w R^n: %.2f\n", m.maximum());
 		System.out.printf("Metryka kolejowa R^2: %.2f\n", n.rail());
 	}
