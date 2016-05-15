@@ -37,14 +37,14 @@ public class test_class{
 		list4.add(-0.5);
 		list4.add(0.1);
 		
-		Metric m = new Metric(list1, list2, 5);
-		Metric n = new Metric(list3, list4, 2);
-
+		metricEuklides m = new metricEuklides(list1, list2);
+		
+		
 	
-		System.out.printf("Metryka euklidesowa w R^n: %.2f\n", m.euklides());
-		System.out.printf("Metryka dyskretna: %d\n", m.discrete());
-		System.out.printf("Metryka miejska w R^n: %.2f\n", m.taxi());
-		System.out.printf("Metryka maksimum w R^n: %.2f\n", m.maximum());
-		System.out.printf("Metryka kolejowa R^2: %.2f\n", n.rail());
+		System.out.printf("Metryka euklidesowa w R^n: %.2f\n", m.distance());
+		System.out.printf("Metryka dyskretna: %f\n", m.distance());
+		System.out.printf("Metryka miejska w R^n: %.2f\n", m.distance());
+		System.out.printf("Metryka maksimum w R^n: %.2f\n", m.distance());
+		
 	}
 }
