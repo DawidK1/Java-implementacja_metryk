@@ -10,7 +10,7 @@ public class metricRiver extends Metric {
 
 	public double distance(){
 		double result = 0;
-		result=vec1.get(2)+vec2.get(2)+Math.abs(vec1.get(1)-vec.get(1));
+		result=vec1.get(1)+vec2.get(1)+Math.abs(vec1.get(0)-vec.get(0));
 		
 		return result;
 	}
