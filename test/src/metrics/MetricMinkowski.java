@@ -12,14 +12,13 @@ public class MetricMinkowski extends Metric {
 	@Override
 	double distance() {
 		int i;
-		int n;
-		int m;
+		double n = 0;
+		int m = 10;
 		
 		for(i = 0 ; i < dim ; i++){
-			n = n + Math.pow(Math.abs(x.(i) - y.(i),m)	
+			n = n + Math.pow(Math.abs(vec1.get(i) - vec2.get(i)),m);	
 		}
-		return Math.pow(n,1/m)
-	return 0;
+		return Math.pow(n,1.0/m);
 	}
 
 }

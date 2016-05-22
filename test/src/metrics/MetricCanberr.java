@@ -15,6 +15,7 @@ public class MetricCanberr extends Metric {
 	double result=0;
 		int i;
 		for(i = 0 ; i < dim ; i++){
+			if(Math.abs(vec1.get(i)+vec2.get(i)) > 0)
 			result=result+Math.abs(vec1.get(i)-vec2.get(i))/Math.abs(vec1.get(i)+vec2.get(i));
 		}
 	return result;
