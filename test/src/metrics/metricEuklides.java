@@ -12,7 +12,7 @@ public class metricEuklides extends Metric {
 		double result = 0;
 		int i = 0;
 		
-		for(i = 0; i < dim ; i++){
+		for(i = 0 ; i < dim ; i++){
 			
 			result = result + (vec1.get(i) - vec2.get(i))*(vec1.get(i) - vec2.get(i));
 			
