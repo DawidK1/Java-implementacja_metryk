@@ -20,13 +20,28 @@ public class test_class{
 		MetricMinkowski mink;
 		MetricCanberr can;
 		metricMaximum max;
+		MetricAbsExp absexp;
+		MetricAritmMin armin;
+		MetricCos cos;
+		MetricGeoMin geo;
+		MetricHumming humm;
+		MetricJaccard jacc;
+		MetricMinMax minmax;
+		
 		//statystyki do poszczegolnych obiektow
 		Statistic eukS = new Statistic();
 		Statistic taxiS = new Statistic();
 		Statistic minkS = new Statistic();
 		Statistic canS = new Statistic();
 		Statistic maxS = new Statistic();
-		
+
+		Statistic absexpS = new Statistic();
+		Statistic arminS = new Statistic();
+		Statistic cosS = new Statistic();
+		Statistic geoS = new Statistic();
+		Statistic hummS = new Statistic();
+		Statistic jaccS = new Statistic();
+		Statistic minmaxS = new Statistic();
 		int v1num;
 		int v2num;
 		//generujemy losowe dane
@@ -59,14 +74,29 @@ public class test_class{
 			taxi = new MetricTaxi(v1,v2);
 			mink = new MetricMinkowski(v1,v2);
 			can = new MetricCanberr(v1,v2);
-			max = new metricMaximum(v1,v2);
+			max = new metricMaximum(v1,v2);			
+			absexp = new MetricAbsExp(v1,v2);
+			armin = new MetricAritmMin(v1,v2);
+			cos = new MetricCos(v1,v2);
+			geo = new MetricGeoMin(v1,v2);
+			jacc = new MetricJaccard(v1,v2);
+			minmax = new MetricMinMax(v1,v2);
+			humm = new MetricHumming(v1,v2);
+			
 
 			// dodajemy kazdy wynik do statystyk
 			maxS.add(max.distance());
 			eukS.add(euk.distance());
 			canS.add(can.distance());
 			minkS.add(mink.distance());
-			taxiS.add(taxi.distance());
+			taxiS.add(taxi.distance());	
+			absexpS.add(absexp.distance());
+			arminS.add(armin.distance());
+			cosS.add(cos.distance());
+			geoS.add(geo.distance());
+			hummS.add(humm.distance());
+			jaccS.add(jacc.distance());
+			minmaxS.add(minmax.distance());
 		}
 System.out.println("Dane zbiorcze:");
 System.out.println("----------------------");
@@ -80,7 +110,22 @@ System.out.print("Canberr\n");
 canS.Show();
 System.out.print("Maximum\n");
 maxS.Show();
-		
+System.out.print("AbsExp\n");
+absexpS.Show();
+System.out.print("AritmMin\n");
+arminS.Show();
+System.out.print("Cos\n");
+cosS.Show();
+System.out.print("Geo\n");
+geoS.Show();
+System.out.print("Humming\n");
+hummS.Show();
+System.out.print("Jaccard\n");
+jaccS.Show();
+System.out.print("MinMax\n");
+minmaxS.Show();
+
+
 	}//////////////////////////Main
 	static void gene(int row, int col,int min,int max, String dest) {
 //Funkcja generuje pseudolosowe dane w ilosci row * col z zakresu od
