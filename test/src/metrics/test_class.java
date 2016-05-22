@@ -166,7 +166,7 @@ minmaxS.Show();
 			for(int j = 0 ; j < length ; j++){
 				{
 					temp.add((double) odczyt.nextInt());
-				}
+				} 
 				
 			}
 			result.add(temp);
