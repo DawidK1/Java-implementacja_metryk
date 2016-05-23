@@ -17,6 +17,6 @@ public class MetricHumming extends Metric {
 				diff = diff + 1;
 		return diff/dim;
 	}
-
+//
 
 }
