@@ -18,4 +18,5 @@ public class MetricHumming extends Metric {
 		return diff/dim;
 	}
 
+
 }
