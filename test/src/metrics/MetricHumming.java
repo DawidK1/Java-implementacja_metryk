@@ -12,10 +12,17 @@ public class MetricHumming extends Metric {
 	@Override
 	double distance() {
 		double diff = 0;
+		double a,b;
 		for(int i = 0; i < dim ; i++)
-			if(vec1.get(i)!= vec2.get(i))
+		{
+			a = vec1.get(i);
+			b = vec2.get(i);
+			if(a != b)
+				{
 				diff = diff + 1;
-		return diff/dim;
+				}
+		}
+		return  diff/dim;
 	}
 
 }

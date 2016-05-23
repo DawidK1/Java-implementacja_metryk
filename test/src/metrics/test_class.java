@@ -44,12 +44,41 @@ public class test_class{
 		Statistic minmaxS = new Statistic();
 		int v1num;
 		int v2num;
+		int col = 0;
+		int row = 0;
+		int lrange = 0;
+		int hrange = 1;
+		int howMany = 1;
+		boolean incorrectData;
+		Scanner input = new Scanner(System.in);
+		do{
+			incorrectData = false;
+			System.out.print("Wprowadz liczbe wektorow do wygenerowania: ");
+			col = input.nextInt();
+			System.out.print("Wprowadz dlugosc jednego wektora: ");
+			row = input.nextInt();
+			System.out.print("Wprowadz dolny zakres generowania wartosci: ");
+			lrange = input.nextInt();
+			System.out.print("Wprowadz gorny zakres generowania wartosci: ");
+			hrange = input.nextInt();
+			System.out.print("Wprowadz liczbe pomiarow miedzy wektorami: ");
+			howMany = input.nextInt();	
+			
+			if(col < 2 || row < 1 || lrange >= hrange || howMany < 1)
+				{
+				System.out.println("Niepoprawne dane, wprowadz jeszcze raz");
+				incorrectData = true;
+				}
+		}while(incorrectData);
+		
+		input.close();
+		
 		//generujemy losowe dane
-		gene(100, 100, -1000, 1000, "data.txt");
+		gene(row, col, lrange, hrange, "data.txt");
 		
 		//wczytujemy dane do listy
 		try{
-			data = readFromFile(100, 100, "data.txt");
+			data = readFromFile(col, row, "data.txt");
 		}
 		catch (FileNotFoundException e){
 			System.out.println("File not found");
@@ -58,12 +87,12 @@ public class test_class{
 		}
 		
 		
-		for (int  i = 0 ; i < 80 ; i++)
+		for (int  i = 0 ; i < howMany ; i++)
 		{
 			//Losujemy dwa rozne wektory 
-			v1num = rand.nextInt(100);
+			v1num = rand.nextInt(col);
 			do{
-			v2num = rand.nextInt(100);
+			v2num = rand.nextInt(col);
 			}while(v1num == v2num);
 
 			v1 = data.get(v1num);
@@ -126,6 +155,8 @@ System.out.print("MinMax\n");
 minmaxS.Show();
 
 
+
+
 	}//////////////////////////Main
 	static void gene(int row, int col,int min,int max, String dest) {
 //Funkcja generuje pseudolosowe dane w ilosci row * col z zakresu od
@@ -134,20 +165,23 @@ minmaxS.Show();
 		try {
 			PrintWriter zapis = new PrintWriter(dest);
 			Random gen = new Random();
+			
 			String dataToSave;
 			int temp;
+			
 			for(int j = 0 ; j < row ; j++){
 				dataToSave = "";
+				
 				for(int i = 0 ; i < col ; i++){
 					temp = min + gen.nextInt(Math.abs(max - min));
 					dataToSave = dataToSave + temp + " ";
-				}	
+					}	
 				zapis.println(dataToSave + "\n");
-			}
+				}
 		zapis.close();	
 
 		} catch (FileNotFoundException e) {
-			System.out.printf("catch");
+			System.exit(-1);
 		}
 
 

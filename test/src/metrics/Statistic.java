@@ -40,8 +40,8 @@ public class Statistic {
 	}
 	public void Show()
 	{
-		System.out.printf("Srednia: %.6f\n", getAverage());
-		System.out.printf("min: %.6f\n", min);
-		System.out.printf("max: %.6f\n-------------------\n", max);
+		System.out.printf("min: %.4f\n", min);
+		System.out.printf("Srednia: %.4f\n", getAverage());
+		System.out.printf("max: %.4f\n-------------------\n", max);
 	}
 }

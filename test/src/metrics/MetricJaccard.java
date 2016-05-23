@@ -12,18 +12,21 @@ public class MetricJaccard extends Metric {
 	@Override
 	double distance() {
 		double sum = 0;
+		double a,b;
 		for(int i = 0 ; i < dim ; i++)
 			{
 			for(int j = 0 ; j < dim ; j++)
 				{
-				if(vec1.get(i) == vec2.get(j))
+				a = vec1.get(i);
+				b = vec2.get(j);
+				if(a == b)
 					{
 					sum = sum + 1;
-					continue;
+					break;
 					}
 				}
 			}
-		return 1.0 - sum/(double)dim;
+		return (1.0 - (sum/dim));
 	}
 
 }
