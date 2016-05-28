@@ -9,6 +9,7 @@ public class MetricTaxi extends Metric {
 	}
 
 	@Override
+	public
 	double distance() {
 		double result = 0;
 		double temp;

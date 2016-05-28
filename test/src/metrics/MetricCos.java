@@ -10,6 +10,7 @@ public class MetricCos extends Metric {
 	}
 
 	@Override
+	public
 	double distance() {
 		double upSum = 0;
 		double v1Sum = 0;

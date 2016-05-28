@@ -10,6 +10,7 @@ public class MetricMinkowski extends Metric {
 	}
 
 	@Override
+	public
 	double distance() {
 		int i;
 		double n = 0;

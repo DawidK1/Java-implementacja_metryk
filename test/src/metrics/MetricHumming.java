@@ -10,6 +10,7 @@ public class MetricHumming extends Metric {
 	}
 
 	@Override
+	public
 	double distance() {
 		double diff = 0;
 		double a,b;

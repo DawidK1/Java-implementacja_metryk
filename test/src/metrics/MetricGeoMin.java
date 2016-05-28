@@ -9,6 +9,7 @@ public class MetricGeoMin extends Metric {
 	}
 
 	@Override
+	public
 	double distance() {
 		double minS = 0;
 		double geoS = 0;

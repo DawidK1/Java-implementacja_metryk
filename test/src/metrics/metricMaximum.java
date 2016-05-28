@@ -4,7 +4,7 @@ import java.util.List;
 
 public class metricMaximum extends Metric{
 
-	metricMaximum(List<Double> v1, List<Double> v2) {
+	public metricMaximum(List<Double> v1, List<Double> v2) {
 		super(v1, v2);
 		
 	}

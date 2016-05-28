@@ -4,7 +4,7 @@ import java.util.List;
 
 public class metricEuklides extends Metric {
 
-	metricEuklides(List<Double> v1, List<Double> v2) {
+	public metricEuklides(List<Double> v1, List<Double> v2) {
 		super(v1, v2);
 	}
 

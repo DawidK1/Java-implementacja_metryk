@@ -10,6 +10,7 @@ public class MetricJaccard extends Metric {
 	}
 
 	@Override
+	public
 	double distance() {
 		double sum = 0;
 		double a,b;

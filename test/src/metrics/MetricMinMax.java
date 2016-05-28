@@ -10,6 +10,7 @@ public class MetricMinMax extends Metric {
 	}
 
 	@Override
+	public
 	double distance() {
 		double minS = 0;
 		double maxS = 0;

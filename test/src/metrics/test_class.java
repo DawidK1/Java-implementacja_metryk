@@ -49,22 +49,27 @@ public class test_class{
 		int lrange = 0;
 		int hrange = 1;
 		int howMany = 1;
+		int randomCols = 0;
+		int coordinate;
 		boolean incorrectData;
+		
 		Scanner input = new Scanner(System.in);
 		do{
 			incorrectData = false;
-			System.out.print("Wprowadz liczbe wektorow do wygenerowania: ");
+			System.out.print("Wprowadz liczbe wierszy do wygenerowania: ");
 			col = input.nextInt();
-			System.out.print("Wprowadz dlugosc jednego wektora: ");
+			System.out.print("Wprowadz liczbe kolumn do wygenerowania: ");
 			row = input.nextInt();
 			System.out.print("Wprowadz dolny zakres generowania wartosci: ");
 			lrange = input.nextInt();
 			System.out.print("Wprowadz gorny zakres generowania wartosci: ");
 			hrange = input.nextInt();
-			System.out.print("Wprowadz liczbe pomiarow miedzy wektorami: ");
+			System.out.print("Wprowadz liczbe pomiarow: ");
 			howMany = input.nextInt();	
+			System.out.print("Wprowadz liczbe elementow z jednego wiersza do porownania: ");
+			randomCols = input.nextInt();	
 			
-			if(col < 2 || row < 1 || lrange >= hrange || howMany < 1)
+			if(col < 2 || row < 1 || lrange >= hrange || howMany < 1 || randomCols < 1 || randomCols > col)
 				{
 				System.out.println("Niepoprawne dane, wprowadz jeszcze raz");
 				incorrectData = true;
@@ -87,16 +92,24 @@ public class test_class{
 		}
 		
 		
-		for (int  i = 0 ; i < howMany ; i++)
+		for (int  i = 0; i < howMany ; i++)
 		{
-			//Losujemy dwa rozne wektory 
+			//Losujemy dwa rozne wiersze
 			v1num = rand.nextInt(col);
+			
 			do{
 			v2num = rand.nextInt(col);
 			}while(v1num == v2num);
+			
+			v1 = new ArrayList<Double>();
+			v2 = new ArrayList<Double>();
+			//po wybraniu dwoch roznych wierszy losujemy niektore ich elementy, w ilosci randomCols
+			for(int j = 0 ; j < randomCols ; j++){
+				coordinate = rand.nextInt(row);
+			v1.add(data.get(v1num).get(coordinate));
+			v2.add(data.get(v2num).get(coordinate));
+			}
 
-			v1 = data.get(v1num);
-			v2 = data.get(v2num);
 
 			//mierzymy je wszystkimi metrykami;
 			euk = new metricEuklides(v1,v2);
@@ -114,18 +127,18 @@ public class test_class{
 			
 
 			// dodajemy kazdy wynik do statystyk
-			maxS.add(max.distance());
-			eukS.add(euk.distance());
-			canS.add(can.distance());
-			minkS.add(mink.distance());
-			taxiS.add(taxi.distance());	
-			absexpS.add(absexp.distance());
-			arminS.add(armin.distance());
-			cosS.add(cos.distance());
-			geoS.add(geo.distance());
-			hummS.add(humm.distance());
-			jaccS.add(jacc.distance());
-			minmaxS.add(minmax.distance());
+			maxS.add(max.distance(), v1num, v2num);
+			eukS.add(euk.distance(), v1num, v2num);
+			canS.add(can.distance(), v1num, v2num);
+			minkS.add(mink.distance(), v1num, v2num);
+			taxiS.add(taxi.distance(), v1num, v2num);
+			absexpS.add(absexp.distance(), v1num, v2num);
+			arminS.add(armin.distance(), v1num, v2num);
+			cosS.add(cos.distance(), v1num, v2num);
+			geoS.add(geo.distance(), v1num, v2num);
+			hummS.add(humm.distance(), v1num, v2num);
+			jaccS.add(jacc.distance(), v1num, v2num);
+			minmaxS.add(minmax.distance(), v1num, v2num);
 		}
 System.out.println("Dane zbiorcze:");
 System.out.println("----------------------");
